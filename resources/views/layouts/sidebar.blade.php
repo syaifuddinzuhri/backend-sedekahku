@@ -1,0 +1,50 @@
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-light-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="{{ route('dashboard.index') }}" class="brand-link px-3 text-center">
+                <img src="{{ asset('images/logo.png') }}" alt="Pazzar Logo" class="w-50">
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="{{ asset('images/users.png') }}" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="{{ route('dashboard.index') }}" class="d-block">{{ auth()->user()->name }}</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-item">
+                            <a href="{{ route('dashboard.index') }}"
+                                class="nav-link {{ Request::is('dashboard') || Request::is('dashboard/*') ? 'active' : '' }}">
+                                <i class="far fa-user nav-icon"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('banner.index') }}"
+                                class="nav-link {{ Request::is('banner') || Request::is('banner/*') ? 'active' : '' }}">
+                                <i class="far fa-image nav-icon"></i>
+                                <p>Banner</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('program.index') }}"
+                                class="nav-link {{ Request::is('program') || Request::is('program/*') ? 'active' : '' }}">
+                                <i class="far fa-star nav-icon"></i>
+                                <p>Program</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
