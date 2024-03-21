@@ -42,6 +42,9 @@ class ProgramController extends Controller
                 ->editColumn('total', function ($data) {
                     return 'Rp ' . number_format($data->total, 0, ',', '.');
                 })
+                ->editColumn('pengeluaran', function ($data) {
+                    return 'Rp ' . number_format($data->pengeluaran, 0, ',', '.');
+                })
                 ->rawColumns(['action'])
                 ->make(true);
         }

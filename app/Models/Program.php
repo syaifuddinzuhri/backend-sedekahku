@@ -16,6 +16,7 @@ class Program extends Model
 
     protected $appends = [
         'total',
+        'pengeluaran',
         'duration'
     ];
 
@@ -56,6 +57,16 @@ class Program extends Model
     {
         try {
             $total = Payment::where('program_id', $this->attributes['id'])->where('status', 1)->sum('nominal');
+            return $total;
+        } catch (\Throwable $th) {
+            return 0;
+        }
+    }
+
+    public function getPengeluaranAttribute()
+    {
+        try {
+            $total = Pengeluaran::where('program_id', $this->attributes['id'])->sum('nominal');
             return $total;
         } catch (\Throwable $th) {
             return 0;

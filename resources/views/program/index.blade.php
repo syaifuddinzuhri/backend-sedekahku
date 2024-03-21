@@ -77,6 +77,7 @@
                             <th>Nama Program</th>
                             <th>Tanggal Berakhir</th>
                             <th>Total Sedekah</th>
+                            <th>Total Pengeluaran</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -169,6 +170,10 @@
                 {
                     data: "total",
                     name: "total"
+                },
+                {
+                    data: "pengeluaran",
+                    name: "pengeluaran"
                 },
                 {
                     data: "action",
