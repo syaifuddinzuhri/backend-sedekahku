@@ -11,6 +11,7 @@ use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
@@ -42,4 +43,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('banner', BannerController::class);
     Route::resource('pengeluaran', PengeluaranController::class);
     Route::resource('program-images', ImagesController::class);
+    Route::resource('setting', SettingController::class);
 });

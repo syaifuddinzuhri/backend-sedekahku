@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         @error('email')
-                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                            <span class="text-danger" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="input-group mb-3">
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         @error('password')
-                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                            <span class="text-danger" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="row">

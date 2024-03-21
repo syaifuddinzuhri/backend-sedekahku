@@ -6,8 +6,8 @@
     <meta name="csrf-token" content="{!! csrf_token() !!}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <title>@yield('title', 'Dashboard') | PAZZAR</title>
-    <link rel="shortcut icon" href="{{asset('images/logo.png')}}" type="image/x-icon">
+    <title>@yield('title', 'Dashboard') | SedekahKuy</title>
+    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"

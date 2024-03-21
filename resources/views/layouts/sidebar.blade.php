@@ -2,7 +2,7 @@
         <aside class="main-sidebar sidebar-light-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ route('dashboard.index') }}" class="brand-link px-3 text-center">
-                <img src="{{ asset('images/logo.png') }}" alt="Pazzar Logo" class="w-50">
+                <img src="{{ asset('images/logo-1.png') }}" alt="Pazzar Logo" class="w-50">
             </a>
 
             <!-- Sidebar -->
@@ -40,6 +40,13 @@
                                 class="nav-link {{ Request::is('program') || Request::is('program/*') ? 'active' : '' }}">
                                 <i class="far fa-star nav-icon"></i>
                                 <p>Program</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('setting.index') }}"
+                                class="nav-link {{ Request::is('setting') || Request::is('setting/*') ? 'active' : '' }}">
+                                <i class="fas fa-cogs nav-icon"></i>
+                                <p>Pengaturan</p>
                             </a>
                         </li>
                     </ul>

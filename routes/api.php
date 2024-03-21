@@ -10,6 +10,7 @@ use App\Http\Controllers\API\PaymentController;
 use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\ProgramController;
+use App\Http\Controllers\API\SettingController;
 use App\Http\Controllers\API\SupplierController;
 use App\Http\Controllers\API\WilayahController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/setting', [SettingController::class, 'index'])->name('api.setting.index');
 Route::get('/banner', [BannerController::class, 'index'])->name('api.banner.index');
 Route::get('/payment', [PaymentController::class, 'index'])->name('api.payment.index');
 Route::post('/payment', [PaymentController::class, 'store'])->name('api.payment.store');

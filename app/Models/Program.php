@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Constants\UploadPathConstant;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,7 +15,8 @@ class Program extends Model
     use HasFactory;
 
     protected $appends = [
-        'total'
+        'total',
+        'duration'
     ];
 
     protected $fillable = [
@@ -57,6 +59,19 @@ class Program extends Model
             return $total;
         } catch (\Throwable $th) {
             return 0;
+        }
+    }
+
+    public function getDurationAttribute()
+    {
+        try {
+            $endDate = $this->attributes['end_date'];
+            if (isset($endDate)) {
+                return Carbon::parse($endDate)->diffForHumans();
+            }
+            return "Tidak Terbatas";
+        } catch (\Throwable $th) {
+            return "Tidak Terbatas";
         }
     }
 

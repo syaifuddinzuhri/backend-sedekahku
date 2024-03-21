@@ -17,10 +17,11 @@ class ProgramController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $result = Program::with(['images'])->latest()
+            $filter = ["name"];
+            $result = Program::with(['images'])->whereLike($filter, $request->keyword ?? "")->latest()
                 ->where(function ($query) {
                     $now = Carbon::now()->format('Y-m-d');
                     $query->whereNull('end_date')
@@ -28,7 +29,7 @@ class ProgramController extends Controller
                             $query->where('end_date', '>=', $now);
                         });
                 })
-                ->paginate(10);
+                ->paginate(isset($request->perPage) ? $request->perPage : 10);
             return $this->customResponse(true, 'Berhasil', $result);
         } catch (\Throwable $th) {
             return $this->customResponse(false, $th->getMessage());
