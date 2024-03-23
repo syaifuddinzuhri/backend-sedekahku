@@ -8,6 +8,7 @@ use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\MarketController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentAccountController;
+use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
@@ -44,6 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('payment-account', PaymentAccountController::class);
     Route::resource('banner', BannerController::class);
     Route::resource('pengeluaran', PengeluaranController::class);
+    Route::resource('pemasukan', PemasukanController::class);
     Route::resource('program-images', ImagesController::class);
     Route::resource('setting', SettingController::class);
 });

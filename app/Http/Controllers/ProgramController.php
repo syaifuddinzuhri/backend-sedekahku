@@ -27,7 +27,7 @@ class ProgramController extends Controller
                 ->addColumn('action', function ($data) {
                     $button = '';
                     $button = '<div class="btn-group" role="group">';
-                    $button .= '<a href="/program/' . $data->id . '/edit" class="btn btn-sm btn-success" >
+                    $button .= '<a href="/pemasukan?program=' . $data->id . '"  class="btn btn-sm btn-success" >
                     <i class="fa fa-inbox" aria-hidden="true"></i> Pemasukan</a>';
                     $button .= '<a href="/pengeluaran?program=' . $data->id . '" class="btn btn-sm btn-info" >
                     <i class="fa fa-boxes" aria-hidden="true"></i> Pengeluaran</a>';
