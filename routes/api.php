@@ -6,6 +6,7 @@ use App\Http\Controllers\API\BannerController;
 use App\Http\Controllers\API\CartController;
 use App\Http\Controllers\API\MarketController;
 use App\Http\Controllers\API\OrderController;
+use App\Http\Controllers\API\PaymentAccountController;
 use App\Http\Controllers\API\PaymentController;
 use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\ProductController;
@@ -30,5 +31,8 @@ Route::get('/setting', [SettingController::class, 'index'])->name('api.setting.i
 Route::get('/banner', [BannerController::class, 'index'])->name('api.banner.index');
 Route::get('/payment', [PaymentController::class, 'index'])->name('api.payment.index');
 Route::post('/payment', [PaymentController::class, 'store'])->name('api.payment.store');
+Route::get('/payment/{id}', [PaymentController::class, 'show'])->name('api.payment.show');
 Route::get('/program', [ProgramController::class, 'index'])->name('api.program.index');
 Route::get('/program/{id}', [ProgramController::class, 'show'])->name('api.program.show');
+Route::get('/payment-account', [PaymentAccountController::class, 'index'])->name('api.payment-account.index');
+Route::get('/payment-account/{id}', [PaymentAccountController::class, 'show'])->name('api.payment-account.show');

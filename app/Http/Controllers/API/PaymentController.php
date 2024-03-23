@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
+use App\Models\PaymentAccount;
 use App\Models\Program;
 use App\Traits\GlobalTrait;
 use Carbon\Carbon;
@@ -41,7 +42,12 @@ class PaymentController extends Controller
             $payload = $request->all();
             $program = Program::find($payload['program']);
             if (!$program) throw new Exception('Program tidak ditemukan');
+            if (!isset($payload['payment_account_id'])) throw new Exception('Akun pembayaran harus diisi');
             if ($payload['nominal'] < 10000) throw new Exception('Minimal nominal Rp 10.000');
+
+            $paymentAccount = PaymentAccount::find($payload['payment_account_id']);
+            if (!$paymentAccount) throw new Exception('Akun pembayaran tidak ditemukan');
+
             $payload['no_transaction'] = $this->generateTransactionOrderNumber();
             $payload['program_id'] = $payload['program'];
             if (!isset($payload['name'])) {
@@ -51,6 +57,8 @@ class PaymentController extends Controller
                 $payload['name'] = 'Hamba Allah';
                 $payload['phone'] = NULL;
             }
+            $payload['status'] = 1;
+
             Payment::create($payload);
             $result = $payload;
             return $this->customResponse(true, 'Pembayaran berhasil', $result);
@@ -67,7 +75,12 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $result = Payment::with(['payment_account', 'program'])->where('no_transaction', $id)->first();
+            return $this->customResponse(true, 'Pembayaran berhasil', $result);
+        } catch (\Throwable $th) {
+            return $this->customResponse(false, $th->getMessage());
+        }
     }
 
     /**

@@ -43,6 +43,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('payment-account.index') }}"
+                                class="nav-link {{ Request::is('payment-account') || Request::is('payment-account/*') ? 'active' : '' }}">
+                                <i class="fas fa-credit-card nav-icon"></i>
+                                <p>Akun Pembayaran</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('setting.index') }}"
                                 class="nav-link {{ Request::is('setting') || Request::is('setting/*') ? 'active' : '' }}">
                                 <i class="fas fa-cogs nav-icon"></i>

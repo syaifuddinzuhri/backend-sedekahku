@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\MarketController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentAccountController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
@@ -40,6 +41,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::resource('dashboard', DashboardController::class)->only(['index']);
     Route::resource('program', ProgramController::class);
+    Route::resource('payment-account', PaymentAccountController::class);
     Route::resource('banner', BannerController::class);
     Route::resource('pengeluaran', PengeluaranController::class);
     Route::resource('program-images', ImagesController::class);
