@@ -28,7 +28,7 @@ class PengeluaranController extends Controller
                     $button = '<div class="btn-group" role="group">';
                     $button .= '<a href="/pengeluaran/' . $data->id . '/edit?program=' . $request->program . '" class="btn btn-sm btn-warning" >
                     <i class="fa fa-edit" aria-hidden="true"></i> Edit</a>';
-                    $button .= '<a href="javascript:void(0)" data-id="' . $data->id . '" data-toggle="modal" data-target="#modal-delete-program"class="btn btn-sm btn-danger delete-program">
+                    $button .= '<a href="javascript:void(0)" data-id="' . $data->id . '" data-toggle="modal" data-target="#modal-delete-pengeluaran"class="btn btn-sm btn-danger delete-pengeluaran">
                         <i class="fa fa-trash" aria-hidden="true"></i> Hapus</a>';
                     $button .= '</div>';
 
