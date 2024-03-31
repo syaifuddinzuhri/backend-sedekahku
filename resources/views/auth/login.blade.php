@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Login | SEDEKAHKU</title>
+    <title>Login | SEDEKAHYUK</title>
     <link rel="shortcut icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
 
     <!-- Google Font: Source Sans Pro -->
@@ -25,7 +25,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <div class="text-center">
-                    <h1>SEDEKAHKU</h1>
+                    <h1>SEDEKAHYUK</h1>
                 </div>
                 {{-- <p class="login-box-msg">Silahkan login untuk masuk sistem</p> --}}
                 @if (Session::has('error'))
