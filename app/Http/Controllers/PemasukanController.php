@@ -18,7 +18,7 @@ class PemasukanController extends Controller
     {
         $program = Program::find($request->program);
         if ($request->ajax()) {
-            $data = Payment::with(['program', 'payment_account'])->latest()->get();
+            $data = Payment::with(['program', 'payment_account'])->where('program_id', $request->program)->latest()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
