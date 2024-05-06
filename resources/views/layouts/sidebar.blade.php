@@ -56,6 +56,13 @@
                                 <p>Pengaturan</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('report.index') }}"
+                                class="nav-link {{ Request::is('report') || Request::is('report/*') ? 'active' : '' }}">
+                                <i class="fas fa-cogs nav-icon"></i>
+                                <p>Laporan Penerimaan</p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
