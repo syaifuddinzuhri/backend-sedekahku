@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Program;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,7 +14,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $data = Program::latest()->get();
+        $total = 0;
+        foreach ($data as $key => $value) {
+            $total += $value->total;
+        }
+        return view('dashboard.index', compact('data', 'total'));
     }
 
     /**
