@@ -73,9 +73,15 @@
                 <input type="hidden" name="end_date" value="{{ Request::get('end_date') ?? '' }}">
                 <button type="submit" class="btn btn-sm btn-success">Export Excel</button>
             </form>
+        @else
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Data belum ada untuk periode tersebut
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @endif
         <div class="mt-4">
-
             @foreach ($data as $item)
                 <li class="list-group-item">
                     <div class="d-flex align-items-center justify-content-between">

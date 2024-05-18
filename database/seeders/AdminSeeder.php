@@ -15,7 +15,15 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
+        User::truncate();
         User::create([
+            'role' => 'super-admin',
+            'name' => 'Super Administrator',
+            'email' => 'superadmin@gmail.com',
+            'password' => 'Superadmin2024'
+        ]);
+        User::create([
+            'role' => 'admin',
             'name' => 'Administrator',
             'email' => 'admin@gmail.com',
             'password' => 'Admin2024'
